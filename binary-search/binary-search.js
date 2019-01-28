@@ -1,8 +1,30 @@
-'use strict';
+"use strict";
 
 // Complete this algo
+// eslint-disable-next-line complexity
 const binarySearch = (array, target) => {
-	
+  if (array.length === 0) {
+    return false;
+  } else {
+    let middleIndex = Math.ceil(array.length / 2);
+
+    if (array[middleIndex] === target) {
+      return true;
+    } else if (array[middleIndex] > target) {
+      for (let i = middleIndex - 1; i > 0; i--) {
+        if (array[i] === target) {
+          return true;
+        }
+      }
+    } else if (array[middleIndex] < target) {
+      for (let i = middleIndex + 1; i < array.length; i++) {
+        if (array[i] === target) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 };
 
 /*
@@ -14,4 +36,4 @@ const binarySearch = (array, target) => {
 
 */
 
-module.exports = binarySearch
+module.exports = binarySearch;
